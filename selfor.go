@@ -38,7 +38,7 @@ type Context struct {
 	Response     http.ResponseWriter
 }
 
-// if cookie secret is set to "", then SetSecureCookie would not work
+// if cookie secret is set to nil, then SetSecureCookie use default Secure.
 func Selfor(secret []byte) macaron.Handler {
 	return func(c *macaron.Context, w http.ResponseWriter, req *http.Request) {
 		_secret := string(secret)
