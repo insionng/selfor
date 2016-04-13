@@ -81,7 +81,7 @@ func Selfor(secret []byte) macaron.Handler {
 
 }
 
-func Classico(o io.Writer) *macaron.Macaron {
+func Classic(o io.Writer) *macaron.Macaron {
 
 	if o == nil {
 		o = os.Stdout
@@ -89,12 +89,12 @@ func Classico(o io.Writer) *macaron.Macaron {
 
 	var r = macaron.NewRouter()
 	var m = macaron.NewWithLogger(o)
-	m.Use(Selfor(nil))
 	m.Use(macaron.Logger())
 	m.Use(macaron.Recovery())
 	m.Use(macaron.Static("public"))
 	m.Map(r)
 	m.Action(r.Handle)
+	m.Use(Selfor(nil))
 	return m
 
 }
