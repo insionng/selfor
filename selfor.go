@@ -21,9 +21,11 @@ import (
 	"strings"
 	"time"
 
-	//"gopkg.in/macaron.v1"
-	//"github.com/Unknwon/macaron"
-	"github.com/go-macaron/macaron"
+	// Selfor 引用的Macaron必须与其他中间件中引用的版本保持一致
+	// 不然会无法匹配到*macaron.Context，导致程序崩溃
+	"gopkg.in/macaron.v1" //当前使用的版本，如果需要编写中间件请使用这个版本
+	//"github.com/Unknwon/macaron"//请勿在其他中间件中使用此版本
+	//"github.com/go-macaron/macaron"//请勿在其他中间件中使用此版本
 )
 
 // A Context object is created for every incoming HTTP request, and is
