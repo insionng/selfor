@@ -18,13 +18,13 @@ import (
 )
 
 func main() {
-	l, e := os.Create("./selfor.Classico.log")
+	l, e := os.Create("./selfor.Classic.log")
 	if e != nil {
 		log.Fatal(e.Error())
 	}
 	defer l.Close()
 
-	m := selfor.Classico(l)
+	m := selfor.Classic(l)
 	m.Get("/", func(self *selfor.Context) {
 		self.WriteString("Hello , Hello , Hello , World!")
 	})
